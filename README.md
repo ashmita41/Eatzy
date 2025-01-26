@@ -8,14 +8,6 @@ Welcome to **Learn React With Me**, a collaborative space where I document my Re
 - **Mini Projects**: Small, hands-on projects to apply React knowledge.
 - **Resources**: Links to tutorials, articles, and tools that have been helpful.
 
-## 🗓️ Daily Progress
-| Day | Topics Covered              | Resources Used                     | Notes & Code              |
-|-----|-----------------------------|------------------------------------|---------------------------|
-| 1   | React setup, JSX basics     | [React Docs](https://reactjs.org/) | [Day 1](./Day1/README.md) |
-| 2   | Components and Props        | [React Docs](https://reactjs.org/) | [Day 2](./Day2/README.md) |
-
-Check back daily for updates! 🌟
-
 ## 🤝 How You Can Contribute
 - Share your feedback or suggestions via issues.
 - Fork this repository and add your own examples or notes.
