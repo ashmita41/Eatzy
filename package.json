@@ -1,0 +1,27 @@
+{
+  "name": "learn-react-with-me",
+  "version": "1.0.0",
+  "description": "React App",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashmita41/Learn-React-With-Me.git"
+  },
+  "author": "Ashmita Pandey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashmita41/Learn-React-With-Me/issues"
+  },
+  "homepage": "https://github.com/ashmita41/Learn-React-With-Me#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
