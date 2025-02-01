@@ -1,0 +1,27 @@
+{
+  "name": "eatzy",
+  "version": "1.0.0",
+  "description": "Eatzy is a modern React application focused on modular component design, rapid UI development with Tailwind CSS, efficient state management using Redux Toolkit, and reliable testing with Jest. It showcases both functional and class-based components, React Hooks, and dynamic navigation through React Router.",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashmita41/Eatzy.git"
+  },
+  "author": "Ashmita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashmita41/Eatzy/issues"
+  },
+  "homepage": "https://github.com/ashmita41/Eatzy#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
