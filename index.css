@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+}
+.logo {
+    width: 100px;
+    height: 70px;
+}
+.nav-items > ul {
+    display: flex;
+    background-color: aqua;
+}
