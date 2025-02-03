@@ -1,48 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/*
-- Header
-    -Logo
-    -Nav Items
--Body
-    -Search
-    -Restaurent Container
-        -Img
-        -Name of Res, Star Rating, Cuisines, etc
--Footer
-    -Container
-    -Links
-    -Address
-    -Contact
-*/
-
-const Title = () => {
-    return (
-        <div className="header">
-            <img className="logo" src="https://png.pngtree.com/png-clipart/20220823/original/pngtree-food-logo-png-image_8466881.png" />
-            <div className="nav-items">
-            <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Cart</li>
-            </ul>
-            </div>
-            
-        </div>
-    )
-};
-
 const resList = [
     {
       "info": {
         "id": "234875",
+        "deliveryTime": 42,
         "name": "Adil Hotel",
         "cloudinaryImageId": "gp1ityra6utvzqn6ghnv",
         "locality": "Rautha Wada",
         "areaName": "Chhindwara Locality",
         "costForTwo": "₹150 for two",
+        
         "cuisines": [
           "North Indian",
           "Biryani",
@@ -53,7 +19,7 @@ const resList = [
         "avgRatingString": "4.3",
         "totalRatingsString": "1.2K+",
         "sla": {
-          "deliveryTime": 42,
+          
           "lastMileTravel": 10.8,
           "serviceability": "SERVICEABLE",
           "slaString": "40-45 mins",
@@ -122,6 +88,7 @@ const resList = [
     {
       "info": {
         "id": "151518",
+        "deliveryTime": 46,
         "name": "Bakery World",
         "cloudinaryImageId": "mt2aggiscfl3yviatwng",
         "locality": "Parasia Road",
@@ -139,7 +106,7 @@ const resList = [
         "avgRatingString": "4.3",
         "totalRatingsString": "254",
         "sla": {
-          "deliveryTime": 46,
+         
           "lastMileTravel": 11.7,
           "serviceability": "SERVICEABLE",
           "slaString": "45-50 mins",
@@ -219,6 +186,7 @@ const resList = [
     {
       "info": {
         "id": "151656",
+        "deliveryTime": 54,
         "name": "Dev International",
         "cloudinaryImageId": "enj3srsnhbltbom2ovvh",
         "locality": "khajri road",
@@ -235,7 +203,7 @@ const resList = [
         "avgRatingString": "4.3",
         "totalRatingsString": "444",
         "sla": {
-          "deliveryTime": 54,
+          
           "lastMileTravel": 11.7,
           "serviceability": "SERVICEABLE",
           "slaString": "50-55 mins",
@@ -305,6 +273,7 @@ const resList = [
     {
       "info": {
         "id": "150591",
+        "deliveryTime": 49,
         "name": "Satkar Restaurant",
         "cloudinaryImageId": "rvxp5xbniat84r6efku2",
         "locality": "Sinchai Colony",
@@ -323,7 +292,7 @@ const resList = [
         "avgRatingString": "4.3",
         "totalRatingsString": "2.4K+",
         "sla": {
-          "deliveryTime": 49,
+          
           "lastMileTravel": 13,
           "serviceability": "SERVICEABLE",
           "slaString": "45-50 mins",
@@ -404,6 +373,7 @@ const resList = [
     {
       "info": {
         "id": "385824",
+        "deliveryTime": 51,
         "name": "The Belgian Waffle Co.",
         "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/17/a38d20d7-bbb7-4b67-8bdd-7740e85cd4af_385824.JPG",
         "locality": "Sinchai Colony",
@@ -421,7 +391,7 @@ const resList = [
         "avgRatingString": "4.7",
         "totalRatingsString": "296",
         "sla": {
-          "deliveryTime": 51,
+          
           "lastMileTravel": 12,
           "serviceability": "SERVICEABLE",
           "slaString": "50-55 mins",
@@ -501,6 +471,7 @@ const resList = [
     {
           "info": {
             "id": "1003414",
+            "deliveryTime": 61,
             "name": "Pizza Hut",
             "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/12/5/dc74a4b7-8d63-4eb7-91c9-048973c2cc99_1003414.jpg",
             "locality": "Chhindwara",
@@ -514,7 +485,7 @@ const resList = [
             "avgRatingString": "3.8",
             "totalRatingsString": "19",
             "sla": {
-              "deliveryTime": 61,
+              
               "lastMileTravel": 12.8,
               "serviceability": "SERVICEABLE",
               "slaString": "60-65 mins",
@@ -600,6 +571,7 @@ const resList = [
         {
           "info": {
             "id": "769851",
+            "deliveryTime": 49,
             "name": "Healthy Bites",
             "cloudinaryImageId": "4dfbe240cf1a2be01e6f2805c75c4279",
             "locality": "Collectrate Road",
@@ -612,7 +584,7 @@ const resList = [
             "parentId": "3143",
             "avgRatingString": "--",
             "sla": {
-              "deliveryTime": 49,
+              
               "lastMileTravel": 11.3,
               "serviceability": "SERVICEABLE",
               "slaString": "45-50 mins",
@@ -712,6 +684,7 @@ const resList = [
         {
           "info": {
             "id": "337899",
+            "deliveryTime": 44,
             "name": "The Paratha House",
             "cloudinaryImageId": "jhjyc3xjdbkqr9wbzsj7",
             "locality": "Ganesh Chowk",
@@ -726,7 +699,7 @@ const resList = [
             "avgRatingString": "4.2",
             "totalRatingsString": "30",
             "sla": {
-              "deliveryTime": 44,
+              
               "lastMileTravel": 10.3,
               "serviceability": "SERVICEABLE",
               "slaString": "40-45 mins",
@@ -825,6 +798,7 @@ const resList = [
         {
           "info": {
             "id": "382152",
+            "deliveryTime": 48,
             "name": "Shriji Namkeen",
             "cloudinaryImageId": "wa8ek94fp9d97ru1tcyn",
             "locality": "Palika Market",
@@ -840,7 +814,7 @@ const resList = [
             "avgRatingString": "3.8",
             "totalRatingsString": "48",
             "sla": {
-              "deliveryTime": 48,
+             
               "lastMileTravel": 10.7,
               "serviceability": "SERVICEABLE",
               "slaString": "45-50 mins",
@@ -937,6 +911,7 @@ const resList = [
         {
           "info": {
             "id": "509851",
+            "deliveryTime": 49,
             "name": "Magic Momo",
             "cloudinaryImageId": "dh0qsuqritnmbncwrni3",
             "locality": "Parasia Road",
@@ -952,7 +927,7 @@ const resList = [
             "avgRatingString": "4.2",
             "totalRatingsString": "48",
             "sla": {
-              "deliveryTime": 49,
+              
               "lastMileTravel": 12.3,
               "serviceability": "SERVICEABLE",
               "slaString": "45-50 mins",
@@ -1049,6 +1024,7 @@ const resList = [
         {
           "info": {
             "id": "774546",
+            "deliveryTime": 47,
             "name": "Shree Naivedyam",
             "cloudinaryImageId": "2274f59cb8efcfab1f446b195bcbda3b",
             "locality": "Khajri Road",
@@ -1067,7 +1043,7 @@ const resList = [
             "avgRatingString": "4.3",
             "totalRatingsString": "102",
             "sla": {
-              "deliveryTime": 47,
+              
               "lastMileTravel": 11.7,
               "serviceability": "SERVICEABLE",
               "slaString": "45-50 mins",
@@ -1154,60 +1130,4 @@ const resList = [
    
   ];
 
-const ResCard = (props) => {
-    const {resData} = props;
-    const {
-        cloudinaryImageId,
-        name, 
-        cuisines,
-        avgRating,
-        costForTwo, 
-        deliveryTime
-    } = resData?.info;
-
-    return (
-        <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-            <img 
-            className="res-logo" alt="res-logo" src= {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId} />
-            <h3>{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating}</h4>
-            <h4>{costForTwo}</h4>
-            <h4>{deliveryTime} minutes</h4>
-
-        </div>
-    );
-};
-
-
-
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="restro-container">
-                {resList.map((restaurent) => (
-                    <ResCard key={restaurent.info.id} resData={restaurent} />
-                   ))}
-                    
-           
-
-            </div>
-
-        </div>
-
-    );
-};
-
-const AppLayout = () => {
-    return (
-       
-        <div className="app">
-             <Title />
-             <Body />
-        </div>
-    );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+  export default resList;
