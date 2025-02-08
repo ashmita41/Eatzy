@@ -1,42 +1,32 @@
-import React from "react";
+import React from "react"; 
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header"
+import { createBrowserRouter, RouterProvider } from "react-router";  // Correct import
+import Header from "./components/Header";
 import Body from "./components/Body";
+import About from "./components/About";
 
-
-
-/*
-- Header
-    -Logo
-    -Nav Items
--Body
-    -Search
-    -Restaurent Container
-        -Img
-        -Name of Res, Star Rating, Cuisines, etc
--Footer
-    -Container
-    -Links
-    -Address
-    -Contact
-*/
-
-
-
-
-
-
-
-
+// Define the AppLayout component
 const AppLayout = () => {
     return (
-       
         <div className="app">
-             <Header />
-             <Body />
+            <Header />
+            <Body />
         </div>
     );
 };
 
+// Define the router using createBrowserRouter
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <AppLayout />,
+    },
+    {
+        path: "/about",
+        element: <About />,
+    },
+]);
+
+// Render the app using RouterProvider with the router configuration
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
