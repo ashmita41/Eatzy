@@ -1,6 +1,6 @@
 import React from "react"; 
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router";  // Correct import
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router";  
 import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";

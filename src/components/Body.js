@@ -1,7 +1,8 @@
 import ResCard from "./ResCard";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -33,6 +34,10 @@ const fetchData = async () => {
 // if(listofRestaurents.length === 0){
 //     return <Shimmer />
 // }
+
+const onlineStatus = useOnlineStatus();
+
+if(onlineStatus == false) return (<h1>Looks like youre offline, please check your internet connection</h1>);
 
 // Conditional Rendering using ternary operator
     return listofRestaurents.length === 0 ? <Shimmer /> : (
