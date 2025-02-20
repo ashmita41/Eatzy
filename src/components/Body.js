@@ -1,88 +1,87 @@
-import ResCard from "./ResCard";
-import { use, useEffect, useState } from "react";
+import ResCard, { withLabel } from "./ResCard";
+import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
-
 const Body = () => {
-    // Local State Varible - Super Powerful Variable
-    const [listofRestaurents, setListofRestaurent] = useState([]);
+  const [listofRestaurents, setListofRestaurent] = useState([]);
+  const [searchText, setsearchText] = useState("");
+  const [filteredRestaurent, setfilteredRestaurent] = useState([]);
 
-    const [searchText, setsearchText] = useState("");
-    const [filteredRestaurent, setfilteredRestaurent] = useState([]);
+  const ResCardLabel = withLabel(ResCard);
 
-useEffect(() => {
+  useEffect(() => {
     fetchData();
-    },
-    []);
+  }, []);
 
-const fetchData = async () => {
-    const data = await fetch
-    ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
-
-    // console.log(json);
-    // console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
     setListofRestaurent(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setfilteredRestaurent(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-};
+  };
 
-// ***Conditional Rendering*** 
-// if(listofRestaurents.length === 0){
-//     return <Shimmer />
-// }
+  const onlineStatus = useOnlineStatus();
 
-const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1>Looks like you're offline, please check your internet connection</h1>;
 
-if(onlineStatus == false) return (<h1>Looks like youre offline, please check your internet connection</h1>);
-
-// Conditional Rendering using ternary operator
-    return listofRestaurents.length === 0 ? <Shimmer /> : (
-        <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input className="search-box" type="text" value={searchText} onChange={(e) => {
-                        setsearchText(e.target.value);
-                    }}
-                    />
-                    <button onClick={() => {
-                        // Filter the Restaurent Cards & Update the UI
-                        // Search the text 
-
-                    console.log(searchText);
-                    const filteredRestaurent =  listofRestaurents.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-                    setfilteredRestaurent(filteredRestaurent);
-                    // We have our list of filtered restro and we just have to update out UI with the filtered Restaurents
-                    // This process will be super fast because of Reconciliation process of React
-
-                    }}
-                    >Search</button>
-
-                </div>
-                <button className="filter-btn" onClick={() => {
-                    //Filter Logic Here
-                    const filteredList = listofRestaurents.filter(
-                        (res)=> res.info.avgRating > 4
-                    );
-                    setListofRestaurent(filteredList);
-                }}
-                >Top Rated Restaurents</button>
-            </div>
-            <div className="restro-container">
-                {filteredRestaurent.map((restaurent) => (
-                  <Link to={"/restaurants/"+ restaurent.info.id}><ResCard resData={restaurent} /></Link>
-                   ))}
-                    
-           
-
-            </div>
-
+  return listofRestaurents.length === 0 ? (
+    <Shimmer />
+  ) : (
+    <div className="bg-white">
+      <div className="filter flex">
+        <div className="search m-4 p-4">
+          <input
+            className="border border-solid border-black px-2 py-1 rounded-lg"
+            type="text"
+            value={searchText}
+            onChange={(e) => setsearchText(e.target.value)}
+          />
+          <button
+            className="px-4 py-2 bg-green-600 text-white rounded-lg ml-2 hover:bg-green-700"
+            onClick={() => {
+              const filtered = listofRestaurents.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setfilteredRestaurent(filtered);
+            }}
+          >
+            Search
+          </button>
         </div>
+        <div className="m-4 p-4 flex items-center rounded-lg">
+          <button
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg"
+            onClick={() => {
+              const filteredList = listofRestaurents.filter(
+                (res) => res.info.avgRating > 4
+              );
+              setfilteredRestaurent(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+      </div>
 
-    );
+      <div className="flex flex-wrap">
+        {filteredRestaurent.map((restaurent) => (
+          <Link key={restaurent.info.id} to={"/restaurants/" + restaurent.info.id}
+          >
+        {/*If the restaurant is veg only then add that      label to it */
+            restaurent.info.veg ? <ResCardLabel resData={restaurent} /> : <ResCard resData={restaurent} />
+        }
+            
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Body;
