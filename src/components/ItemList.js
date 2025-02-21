@@ -1,6 +1,16 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+        //dispatch an action
+        dispatch(addItem(item));
+    }
+
     return (
         <div className="space-y-4">
             {items.map((item) => (
@@ -33,6 +43,7 @@ const ItemList = ({ items }) => {
                         {/* Overlay Button */}
                         <button 
                             className="absolute bottom-2 right-2 bg-green-500 text-white text-sm font-semibold py-1 px-3 rounded-full shadow-md hover:bg-green-600 transition-all duration-300"
+                            onClick={() => handleAddItem(item)}
                         >
                             Add +
                         </button>
